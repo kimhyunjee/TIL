@@ -140,5 +140,33 @@ export default GlobalStyle;
 이렇게 해주면 컴포넌트 레벨에서 스타일해줄 부분이 줄어들 게 되어, 여러 컴포넌트에 동일한 스타일을 반복해서 정의할 일이 적어집니다. 뿐만 아니라 전역 스타일을 변경없이 그대로 사용할 경우에는 아예 해당 엘리먼트에 대한 스타일을 생략할 수도 있습니다.
 
 ### 예시
+```jsx
+// BlogPost.jsx
+
+import styled from "styled-components";
+
+function BlogPost({ title, children }) {
+  return (
+    <Wrapper>
+      <Title>{title}</Title>
+      <p>{children}</p>
+    </Wrapper>
+  );
+}
+
+const Title = styled.h2`
+  margin-bottom: 8px;
+`;
+
+const Wrapper = styled.article`
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 400px;
+`;
+
+export default BlogPost;
+```
 
 출처: https://www.daleseo.com/styled-components-global-style/
